@@ -1,0 +1,872 @@
+stackbitVersion: ~0.3.0
+ssgName: hugo
+publishDir: public
+dataDir: data
+pagesDir: content
+assets:
+  referenceType: static
+  staticDir: static
+  uploadDir: assets
+  publicPath: /
+models:
+  page_1:
+    type: page
+    label: Page 1
+    match:
+      - en/_index.md
+      - ko/_index.md
+    fields:
+      - type: list
+        name: header
+        label: Header
+        items:
+          type: model
+          models:
+            - object_eorb86n3tf
+            - object_ci2kbsvomw
+            - object_34du0cnmdt
+            - object_9yr52ztgfp
+            - object_m52lyxdzo7
+            - object_4a8vq5n5c7
+  page_2:
+    type: page
+    label: Page 2
+    match:
+      - en/about/index.md
+      - en/archive/_index.md
+      - en/publication/article/_index.md
+      - en/publication/book/_index.md
+      - en/publication/misc/_index.md
+      - ko/about/index.ko.md
+      - ko/archive/_index.ko.md
+      - ko/gallery/cartoon/index.ko.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: type
+        label: Type
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: titleWrap
+        label: Title Wrap
+  cartoon:
+    type: page
+    label: Cartoon
+    folder: en/gallery/cartoon
+    match: '*'
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: type
+        label: Type
+      - type: string
+        name: mode
+        label: Mode
+      - type: string
+        name: description
+        label: Description
+      - type: image
+        name: image
+        label: Image
+  page_3:
+    type: page
+    label: Page 3
+    match:
+      - en/posts/_index.md
+      - ko/posts/_index.ko.md
+    fields:
+      - type: list
+        name: aliases
+        label: Aliases
+        items:
+          type: string
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: author
+        label: Author
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
+      - type: string
+        name: description
+        label: Description
+  post:
+    type: page
+    label: Post
+    folder: en/posts
+    match: '*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: description
+        label: Description
+      - type: boolean
+        name: draft
+        label: Draft
+      - type: boolean
+        name: hideToc
+        label: Hide Toc
+      - type: boolean
+        name: enableToc
+        label: Enable Toc
+      - type: boolean
+        name: enableTocContent
+        label: Enable Toc Content
+      - type: string
+        name: author
+        label: Author
+      - type: string
+        name: authorEmoji
+        label: Author Emoji
+      - type: list
+        name: tags
+        label: Tags
+        items:
+          type: string
+      - type: list
+        name: categories
+        label: Categories
+        items:
+          type: string
+      - type: list
+        name: series
+        label: Series
+        items:
+          type: string
+      - type: image
+        name: image
+        label: Image
+      - type: string
+        name: tocPosition
+        label: Toc Position
+      - type: boolean
+        name: pinned
+        label: Pinned
+      - type: list
+        name: libraries
+        label: Libraries
+        items:
+          type: string
+  presentation:
+    type: page
+    label: Presentation
+    folder: en/presentation
+    match:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+  presentation_1:
+    type: page
+    label: Presentation 1
+    folder: en/presentation
+    match: '**/*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: description
+        label: Description
+      - type: image
+        name: image
+        label: Image
+      - type: string
+        name: revealBackgroundColor
+        label: Reveal Background Color
+      - type: string
+        name: revealBackgroundImage
+        label: Reveal Background Image
+      - type: string
+        name: revealBackgroundPosition
+        label: Reveal Background Position
+      - type: string
+        name: revealBackgroundRepeat
+        label: Reveal Background Repeat
+      - type: string
+        name: revealBackgroundOpacity
+        label: Reveal Background Opacity
+      - type: string
+        name: revealBackgroundVideo
+        label: Reveal Background Video
+      - type: boolean
+        name: revealBackgroundVideoLoop
+        label: Reveal Background Video Loop
+      - type: boolean
+        name: revealBackgroundVideoMuted
+        label: Reveal Background Video Muted
+      - type: string
+        name: revealBackgroundSize
+        label: Reveal Background Size
+      - type: list
+        name: reveal
+        label: Reveal
+        items:
+          type: model
+          models:
+            - object_g4mchuvyjp
+            - object_w2h6q1wifm
+            - object_gsth1p77kn
+      - type: list
+        name: plugins
+        label: Plugins
+        items:
+          type: string
+      - type: string
+        name: highlightTheme
+        label: Highlight Theme
+      - type: string
+        name: revealTheme
+        label: Reveal Theme
+  publication:
+    type: page
+    label: Publication
+    folder: en/publication
+    match:
+      - book/book_any_folder_name_1/index.md
+      - article/article_any_folder_name_1/index.md
+      - misc/misc_any_folder_name_1/index.md
+    fields:
+      - type: list
+        name: authors
+        label: Authors
+        items:
+          type: string
+      - type: string
+        name: publisher
+        label: Publisher
+      - type: string
+        name: abstract
+        label: Abstract
+      - type: string
+        name: shorttitle
+        label: Shorttitle
+      - type: string
+        name: isbn
+        label: Isbn
+      - type: string
+        name: copyright
+        label: Copyright
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: ENTRYTYPE
+        label: ENTRYTYPE
+      - type: boolean
+        name: enableToc
+        label: Enable Toc
+      - type: boolean
+        name: enableWhoami
+        label: Enable Whoami
+      - type: boolean
+        name: pinned
+        label: Pinned
+      - type: date
+        name: publishDate
+        label: Publish Date
+      - type: list
+        name: keywords
+        label: Keywords
+        items:
+          type: string
+      - type: string
+        name: publication
+        label: Publication
+      - type: list
+        name: links
+        label: Links
+        items:
+          type: object
+          fields:
+            - type: string
+              name: name
+              label: Name
+            - type: string
+              name: link
+              label: Link
+  showcase:
+    type: page
+    label: Showcase
+    folder: en/showcase
+    match:
+      - _index.md
+      - hugo/_index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: description
+        label: Description
+      - type: boolean
+        name: enableBio
+        label: Enable Bio
+      - type: string
+        name: category
+        label: Category
+  hugo:
+    type: page
+    label: Hugo
+    folder: en/showcase/hugo
+    match: '*'
+    exclude:
+      - _index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: datetime
+        name: date
+        label: Date
+      - type: string
+        name: description
+        label: Description
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+      - type: string
+        name: link
+        label: Link
+      - type: string
+        name: repo
+        label: Repo
+      - type: boolean
+        name: pinned
+        label: Pinned
+      - type: image
+        name: thumb
+        label: Thumb
+  object_99t91127v7:
+    type: object
+    label: Object 1
+    fields:
+      - type: markdown
+        name: typeString
+        label: Type String
+  object_l7qbmovq4u:
+    type: object
+    label: Object 2
+    fields:
+      - type: number
+        name: pauseFor
+        label: Pause For
+        subtype: int
+  object_7kqk5i8t1a:
+    type: object
+    label: Object 3
+    fields:
+      - type: boolean
+        name: deleteAll
+        label: Delete All
+  object_q8s75tyng5:
+    type: object
+    label: Object 4
+    fields:
+      - type: number
+        name: deleteChars
+        label: Delete Chars
+        subtype: int
+  object_eorb86n3tf:
+    type: object
+    label: Object 5
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: image
+        name: imageSrc
+        label: Image Src
+      - type: string
+        name: imageSize
+        label: Image Size
+      - type: string
+        name: imageRepeat
+        label: Image Repeat
+      - type: string
+        name: imagePosition
+        label: Image Position
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: number
+        name: paddingX
+        label: Padding X
+        subtype: int
+      - type: number
+        name: paddingY
+        label: Padding Y
+        subtype: int
+      - type: string
+        name: align
+        label: Align
+      - type: list
+        name: title
+        label: Title
+        items:
+          type: string
+      - type: list
+        name: subtitle
+        label: Subtitle
+        items:
+          type: string
+      - type: boolean
+        name: titleShadow
+        label: Title Shadow
+      - type: number
+        name: titleFontSize
+        label: Title Font Size
+        subtype: int
+      - type: boolean
+        name: subtitleCursive
+        label: Subtitle Cursive
+      - type: number
+        name: subtitleFontSize
+        label: Subtitle Font Size
+        subtype: int
+      - type: number
+        name: spaceBetweenTitleSubtitle
+        label: Space Between Title Subtitle
+        subtype: int
+  object_ci2kbsvomw:
+    type: object
+    label: Object 6
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: list
+        name: methods
+        label: Methods
+        items:
+          type: model
+          models:
+            - object_99t91127v7
+            - object_l7qbmovq4u
+            - object_7kqk5i8t1a
+            - object_q8s75tyng5
+      - type: object
+        name: options
+        label: Options
+        fields:
+          - type: boolean
+            name: loop
+            label: Loop
+          - type: boolean
+            name: autoStart
+            label: Auto Start
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: number
+        name: paddingX
+        label: Padding X
+        subtype: int
+      - type: string
+        name: align
+        label: Align
+      - type: number
+        name: fontSize
+        label: Font Size
+        subtype: int
+      - type: string
+        name: fontColor
+        label: Font Color
+  object_34du0cnmdt:
+    type: object
+    label: Object 7
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: object
+        name: options
+        label: Options
+        fields:
+          - type: number
+            name: startSlide
+            label: Start Slide
+            subtype: int
+          - type: number
+            name: auto
+            label: Auto
+            subtype: int
+          - type: boolean
+            name: draggable
+            label: Draggable
+          - type: boolean
+            name: autoRestart
+            label: Auto Restart
+          - type: boolean
+            name: continuous
+            label: Continuous
+          - type: boolean
+            name: disableScroll
+            label: Disable Scroll
+          - type: boolean
+            name: stopPropagation
+            label: Stop Propagation
+      - type: list
+        name: slide
+        label: Slide
+        items:
+          type: object
+          fields:
+            - type: number
+              name: paddingX
+              label: Padding X
+              subtype: int
+            - type: number
+              name: paddingY
+              label: Padding Y
+              subtype: int
+            - type: string
+              name: align
+              label: Align
+            - type: image
+              name: imageSrc
+              label: Image Src
+            - type: string
+              name: imageSize
+              label: Image Size
+            - type: string
+              name: imageRepeat
+              label: Image Repeat
+            - type: string
+              name: imagePosition
+              label: Image Position
+            - type: list
+              name: title
+              label: Title
+              items:
+                type: string
+            - type: list
+              name: subtitle
+              label: Subtitle
+              items:
+                type: string
+            - type: number
+              name: titleFontSize
+              label: Title Font Size
+              subtype: int
+            - type: number
+              name: subtitleFontSize
+              label: Subtitle Font Size
+              subtype: int
+            - type: number
+              name: spaceBetweenTitleSubtitle
+              label: Space Between Title Subtitle
+              subtype: int
+  object_g4mchuvyjp:
+    type: object
+    label: Object 8
+    fields:
+      - type: list
+        name: main
+        label: Main
+        items:
+          type: object
+          fields:
+            - type: list
+              name: sub
+              label: Sub
+              items:
+                type: markdown
+  object_w2h6q1wifm:
+    type: object
+    label: Object 9
+    fields:
+      - type: list
+        name: fragment
+        label: Fragment
+        items:
+          type: object
+          fields:
+            - type: list
+              name: sub
+              label: Sub
+              items:
+                type: markdown
+  object_wd40t7hrj1:
+    type: object
+    label: Object 10
+    fields:
+      - type: markdown
+        name: typeString
+        label: Type String
+  object_ox2lls2m8c:
+    type: object
+    label: Object 11
+    fields:
+      - type: number
+        name: pauseFor
+        label: Pause For
+        subtype: int
+  object_935dv36lv8:
+    type: object
+    label: Object 12
+    fields:
+      - type: boolean
+        name: deleteAll
+        label: Delete All
+  object_vndx10v956:
+    type: object
+    label: Object 13
+    fields:
+      - type: number
+        name: deleteChars
+        label: Delete Chars
+        subtype: int
+  object_9yr52ztgfp:
+    type: object
+    label: Object 14
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: image
+        name: imageSrc
+        label: Image Src
+      - type: string
+        name: imageSize
+        label: Image Size
+      - type: string
+        name: imageRepeat
+        label: Image Repeat
+      - type: string
+        name: imagePosition
+        label: Image Position
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: number
+        name: paddingX
+        label: Padding X
+        subtype: int
+      - type: number
+        name: paddingY
+        label: Padding Y
+        subtype: int
+      - type: string
+        name: align
+        label: Align
+      - type: list
+        name: title
+        label: Title
+        items:
+          type: string
+      - type: list
+        name: subtitle
+        label: Subtitle
+        items:
+          type: string
+      - type: boolean
+        name: titleShadow
+        label: Title Shadow
+      - type: number
+        name: titleFontSize
+        label: Title Font Size
+        subtype: int
+      - type: boolean
+        name: subtitleCursive
+        label: Subtitle Cursive
+      - type: number
+        name: subtitleFontSize
+        label: Subtitle Font Size
+        subtype: int
+      - type: number
+        name: spaceBetweenTitleSubtitle
+        label: Space Between Title Subtitle
+        subtype: int
+  object_m52lyxdzo7:
+    type: object
+    label: Object 15
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: list
+        name: methods
+        label: Methods
+        items:
+          type: model
+          models:
+            - object_wd40t7hrj1
+            - object_ox2lls2m8c
+            - object_935dv36lv8
+            - object_vndx10v956
+      - type: object
+        name: options
+        label: Options
+        fields:
+          - type: boolean
+            name: loop
+            label: Loop
+          - type: boolean
+            name: autoStart
+            label: Auto Start
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: number
+        name: paddingX
+        label: Padding X
+        subtype: int
+      - type: string
+        name: align
+        label: Align
+      - type: number
+        name: fontSize
+        label: Font Size
+        subtype: int
+      - type: string
+        name: fontColor
+        label: Font Color
+  object_4a8vq5n5c7:
+    type: object
+    label: Object 16
+    fields:
+      - type: string
+        name: type
+        label: Type
+      - type: number
+        name: height
+        label: Height
+        subtype: int
+      - type: object
+        name: options
+        label: Options
+        fields:
+          - type: number
+            name: startSlide
+            label: Start Slide
+            subtype: int
+          - type: number
+            name: auto
+            label: Auto
+            subtype: int
+          - type: boolean
+            name: draggable
+            label: Draggable
+          - type: boolean
+            name: autoRestart
+            label: Auto Restart
+          - type: boolean
+            name: continuous
+            label: Continuous
+          - type: boolean
+            name: disableScroll
+            label: Disable Scroll
+          - type: boolean
+            name: stopPropagation
+            label: Stop Propagation
+      - type: list
+        name: slide
+        label: Slide
+        items:
+          type: object
+          fields:
+            - type: number
+              name: paddingX
+              label: Padding X
+              subtype: int
+            - type: number
+              name: paddingY
+              label: Padding Y
+              subtype: int
+            - type: string
+              name: align
+              label: Align
+            - type: image
+              name: imageSrc
+              label: Image Src
+            - type: string
+              name: imageSize
+              label: Image Size
+            - type: string
+              name: imageRepeat
+              label: Image Repeat
+            - type: string
+              name: imagePosition
+              label: Image Position
+            - type: list
+              name: title
+              label: Title
+              items:
+                type: string
+            - type: list
+              name: subtitle
+              label: Subtitle
+              items:
+                type: string
+            - type: number
+              name: titleFontSize
+              label: Title Font Size
+              subtype: int
+            - type: number
+              name: subtitleFontSize
+              label: Subtitle Font Size
+              subtype: int
+            - type: number
+              name: spaceBetweenTitleSubtitle
+              label: Space Between Title Subtitle
+              subtype: int
+  object_gsth1p77kn:
+    type: object
+    label: Object 17
+    fields:
+      - type: list
+        name: main
+        label: Main
+        items:
+          type: object
+          fields:
+            - type: list
+              name: sub
+              label: Sub
+              items:
+                type: markdown
